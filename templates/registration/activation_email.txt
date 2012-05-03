@@ -1,0 +1,2 @@
+Hello
+Activate here: http://fitnesscounter.appspot.com/activate/{{ activation_key }}/

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML">
+<htm>
+<head>
+    <title>{% block title %}{% endblock %} - Nonrel-testapp</title>
+    
+    <link rel="stylesheet" href="/static/screen.css" type="text/css" media="screen" />
+
+    {% block css %}
+    {% endblock %}
+
+    {% block preload_js %}
+    {% endblock %}
+
+    {% block extra-head %}{% endblock %}
+</head>
+
+<body>
+<div id="header"></div>
+    {% block header %}{% endblock %}
+<div id="wrapper">
+    <div id="menu">
+        {% block menu %}{% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="side_panel">
+        {% block side_panel %}{% endblock %}
+    </div>
+</div>
+
+<div id="footer">
+</div>
+
+{% block js %}
+{% endblock %}
+</body>
+</html>

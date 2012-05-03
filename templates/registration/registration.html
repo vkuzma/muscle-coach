@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action=".">
+{% csrf_token %}
+    <table>
+        <tbody>
+            {{ form.as_table }}
+            <!-- <tr>
+                <td><label for="id_name">Name</label></td>
+                <td><input type="input" id="id_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="id_prename">Prename</labe></td>
+                <td><input type="input" id="id_prename" /></td>
+            </tr>
+            <tr>
+                <td><label for="id_email">E-mail</label></td>
+                <td><input type="input" id="id_email" /></td>
+            </tr>
+            <tr>
+                <td><label for="id_username">Username</label></td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td><label for="id_password1">Password</label></td>
+                <td>{{ form.password1 }}</td>
+            </tr>
+            <tr>
+                <td><label for="id_password2">Password confirmation</label></td>
+                <td>{{ form.password2 }}</td>
+            </tr> -->
+            <tr>
+                <td><input type="submit" value="register" /></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+{% endblock %}

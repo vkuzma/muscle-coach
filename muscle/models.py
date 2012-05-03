@@ -43,7 +43,6 @@ class TrainingSchema_ExerciseSchema(models.Model):
     training_schema = models.ForeignKey('TrainingSchema')
 
 class TrainingSession(models.Model):
-    user = models.ForeignKey('registration.RegistrationProfile')
     training_schema = models.OneToOneField('TrainingSchema')
     date = models.DateField(auto_now_add=True, blank=False)
     duration = models.IntegerField(help_text='Duration of the training session')

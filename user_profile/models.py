@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 
-from registration.signals import user_registered
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
@@ -17,6 +16,5 @@ class UserProfile(models.Model):
 def create_user_profile(sender, user, request, **kwargs):  
     profile, created = UserProfile.objects.get_or_create(user=user, birthday=request.POST.get('birthday'), gender=request.POST.get('gender'))
     
-user_registered.connect(create_user_profile)
     
     
