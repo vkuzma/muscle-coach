@@ -1,17 +1,18 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
+from django.contrib import admin
+import user_profile
+from registration.views import activate
+from django.contrib.auth import views as auth_views
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+admin.autodiscover()
+handler500 = 'djangotoolbox.errorviews.server_error'
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'muscle_coach.views.home', name='home'),
-    # url(r'^muscle_coach/', include('muscle_coach.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-)
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('user_profile.urls')),
+    url(r'^training/', include('muscle.urls')),
+    url(r'^activate/(?P<activation_key>\w+)/$', activate,
+       { 'backend': 'registration.backends.default.DefaultBackend' },
+       name='registration_activate'),
+    url('^$', 'django.views.generic.simple.direct_to_template', {'template': 'home.html'}),
+)   
